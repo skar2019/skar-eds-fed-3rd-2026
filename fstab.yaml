@@ -1,0 +1,7 @@
+mountpoints:
+  /:
+    url: https://content.da.live/skar2019/skar-eds-fed-3rd-2026/
+    type: markup
+
+folders:
+  /products/: /products/default

@@ -3,7 +3,7 @@ import fs from 'fs';
 import he from 'he';
 import productSearchQuery from './queries/products.graphql.js';
 import { variantsFragment } from './queries/variants.graphql.js';
-const basePath = 'https://www.aemshop.net';
+const basePath = 'https://main--skar-eds-fed-3rd-2026--skar2019.aem.page';
 const configFile = `${basePath}/config.json`;
 
 /**
@@ -204,7 +204,7 @@ const getProducts = async (config, pageNumber) => {
         productView: {
           ...item.productView,
           image: baseImageUrl,
-          path: `products/${urlKey}/${sku}`.toLowerCase(),
+          path: `products/${sku}`.toLowerCase(),
           meta_keyword: (metaKeyword !== null) ? metaKeyword : '',
           meta_title: he.decode((metaTitle !== '') ? metaTitle : name),
           meta_description: finalDescription,

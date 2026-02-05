@@ -628,7 +628,7 @@ export async function commerceEndpointWithQueryParams() {
  */
 function getSkuFromUrl() {
   const path = window.location.pathname;
-  const result = path.match(/\/products\/[\w|-]+\/([\w|-]+)$/);
+  const result = path.match(/\/products\/([\w|-]+)$/);
   return result?.[1];
 }
 
@@ -666,15 +666,11 @@ export function isProductTemplate() {
 }
 
 export function getProductLink(urlKey, sku) {
-  if (!urlKey) {
-    console.warn('getProductLink: urlKey is missing or empty', { urlKey, sku });
-  }
   if (!sku) {
     console.warn('getProductLink: sku is missing or empty', { urlKey, sku });
   }
-  const sanitizedUrlKey = urlKey ? sanitizeName(urlKey) : '';
   const sanitizedSku = sku ? sanitizeName(sku) : '';
-  return rootLink(`/products/${sanitizedUrlKey}/${sanitizedSku}`);
+  return rootLink(`/products/${sanitizedSku}`);
 }
 
 /**

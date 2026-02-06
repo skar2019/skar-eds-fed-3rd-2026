@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Modern E-commerce Storefront - Your one-stop shop for quality products">
+    <title>Home - E-commerce Storefront</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="site-header">
+        <div class="header-container">
+            <div class="logo">
+                <a href="/">Storefront</a>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="/products">Products</a></li>
+                    <li><a href="/categories">Categories</a></li>
+                    <li><a href="/about">About</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <button class="search-btn" aria-label="Search">🔍</button>
+                <button class="cart-btn" aria-label="Cart">🛒</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Banner Carousel Section -->
+        <section class="hero-carousel">
+            <div class="hero-carousel-container">
+                <div class="hero-carousel-slides">
+                    <!-- Slide 1 -->
+                    <div class="hero-slide active">
+                        <div class="hero-slide-image">
+                            <img src="images/hero-banner.jpg" alt="Welcome to Our Store" loading="eager">
+                        </div>
+                        <div class="hero-slide-content">
+                            <h1>Welcome to Our Store</h1>
+                            <p class="hero-subtitle">Discover amazing products at unbeatable prices</p>
+                            <div class="hero-cta">
+                                <a href="/products" class="btn btn-primary">Shop Now</a>
+                                <a href="/about" class="btn btn-secondary">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Slide 2 -->
+                    <div class="hero-slide">
+                        <div class="hero-slide-image">
+                            <img src="images/hero-slide-2.jpg" alt="Summer Collection" loading="lazy">
+                        </div>
+                        <div class="hero-slide-content">
+                            <h1>Summer Collection 2025</h1>
+                            <p class="hero-subtitle">Explore our latest summer collection with fresh designs and vibrant colors</p>
+                            <div class="hero-cta">
+                                <a href="/products/summer" class="btn btn-primary">Shop Collection</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Slide 3 -->
+                    <div class="hero-slide">
+                        <div class="hero-slide-image">
+                            <img src="images/hero-slide-3.jpg" alt="Limited Time Offer" loading="lazy">
+                        </div>
+                        <div class="hero-slide-content">
+                            <h1>Limited Time Offer</h1>
+                            <p class="hero-subtitle">Get up to 50% off on selected items. Don't miss out on these amazing deals</p>
+                            <div class="hero-cta">
+                                <a href="/products/sale" class="btn btn-primary">Shop Sale</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Carousel Controls -->
+                <button class="hero-carousel-prev" aria-label="Previous slide">‹</button>
+                <button class="hero-carousel-next" aria-label="Next slide">›</button>
+                <!-- Carousel Indicators -->
+                <div class="hero-carousel-indicators">
+                    <button class="indicator active" data-slide="0" aria-label="Go to slide 1"></button>
+                    <button class="indicator" data-slide="1" aria-label="Go to slide 2"></button>
+                    <button class="indicator" data-slide="2" aria-label="Go to slide 3"></button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Teaser Content Section -->
+        <section class="teaser-content">
+            <div class="container">
+                <h2 class="section-title">Why Choose Us</h2>
+                <div class="teaser-grid">
+                    <div class="teaser-card">
+                        <div class="teaser-icon">🚚</div>
+                        <h3>Free Shipping</h3>
+                        <p>Free shipping on orders over $50. Fast and reliable delivery to your doorstep.</p>
+                    </div>
+                    <div class="teaser-card">
+                        <div class="teaser-icon">🔒</div>
+                        <h3>Secure Payment</h3>
+                        <p>Your payment information is encrypted and secure. Shop with confidence.</p>
+                    </div>
+                    <div class="teaser-card">
+                        <div class="teaser-icon">↩️</div>
+                        <h3>Easy Returns</h3>
+                        <p>30-day return policy. Not satisfied? Return it hassle-free.</p>
+                    </div>
+                    <div class="teaser-card">
+                        <div class="teaser-icon">⭐</div>
+                        <h3>Quality Guaranteed</h3>
+                        <p>We stand behind our products with quality assurance and customer support.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Products Section -->
+        <section class="featured-products">
+            <div class="container">
+                <h2 class="section-title">Featured Products</h2>
+                <div class="products-grid">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="images/product-1.jpg" alt="Product 1" loading="lazy">
+                            <div class="product-badge">New</div>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Premium Product</h3>
+                            <p class="product-price">$99.99</p>
+                            <button class="btn btn-add-cart">Add to Cart</button>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="images/product-2.jpg" alt="Product 2" loading="lazy">
+                            <div class="product-badge sale">Sale</div>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Best Seller</h3>
+                            <p class="product-price">
+                                <span class="price-old">$149.99</span>
+                                <span class="price-new">$119.99</span>
+                            </p>
+                            <button class="btn btn-add-cart">Add to Cart</button>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="images/product-3.jpg" alt="Product 3" loading="lazy">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Popular Choice</h3>
+                            <p class="product-price">$79.99</p>
+                            <button class="btn btn-add-cart">Add to Cart</button>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="images/product-4.jpg" alt="Product 4" loading="lazy">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Trending Now</h3>
+                            <p class="product-price">$89.99</p>
+                            <button class="btn btn-add-cart">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Video Embed Section -->
+        <section class="video-embed">
+            <div class="container">
+                <h2 class="section-title">See Us in Action</h2>
+                <div class="video-wrapper">
+                    <div class="video-container">
+                        <iframe 
+                            src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+                            title="Product Video" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <div class="video-content">
+                        <h3>Watch Our Story</h3>
+                        <p>Learn more about our mission, values, and commitment to delivering quality products to our customers worldwide.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="testimonials">
+            <div class="container">
+                <h2 class="section-title">What Our Customers Say</h2>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
+                        <p class="testimonial-text">"Amazing quality and fast shipping! Highly recommend this store."</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">JD</div>
+                            <div class="author-info">
+                                <p class="author-name">John Doe</p>
+                                <p class="author-title">Verified Customer</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
+                        <p class="testimonial-text">"Best shopping experience I've had online. Great products and excellent service!"</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">JS</div>
+                            <div class="author-info">
+                                <p class="author-name">Jane Smith</p>
+                                <p class="author-title">Verified Customer</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
+                        <p class="testimonial-text">"The customer support team is fantastic. They helped me find exactly what I needed."</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">MJ</div>
+                            <div class="author-info">
+                                <p class="author-name">Mike Johnson</p>
+                                <p class="author-title">Verified Customer</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter Section -->
+        <section class="newsletter">
+            <div class="container">
+                <div class="newsletter-content">
+                    <h2>Stay Updated</h2>
+                    <p>Subscribe to our newsletter and get exclusive deals and updates</p>
+                    <form class="newsletter-form" id="newsletterForm">
+                        <input 
+                            type="email" 
+                            placeholder="Enter your email" 
+                            required 
+                            aria-label="Email address"
+                        >
+                        <button type="submit" class="btn btn-primary">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>About Us</h3>
+                    <ul>
+                        <li><a href="/about">Our Story</a></li>
+                        <li><a href="/careers">Careers</a></li>
+                        <li><a href="/press">Press</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Customer Service</h3>
+                    <ul>
+                        <li><a href="/contact">Contact Us</a></li>
+                        <li><a href="/shipping">Shipping Info</a></li>
+                        <li><a href="/returns">Returns</a></li>
+                        <li><a href="/faq">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="/privacy">Privacy Policy</a></li>
+                        <li><a href="/terms">Terms of Service</a></li>
+                        <li><a href="/cookies">Cookie Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Connect</h3>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook">📘</a>
+                        <a href="#" aria-label="Twitter">🐦</a>
+                        <a href="#" aria-label="Instagram">📷</a>
+                        <a href="#" aria-label="LinkedIn">💼</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Storefront. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

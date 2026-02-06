@@ -131,6 +131,7 @@ export default async function decorate(block) {
   block.prepend(slidesWrapper);
 
   let slideIndicators;
+  let navigationButtons;
   if (!isSingleSlide) {
     const slideIndicatorsNav = document.createElement('nav');
     slideIndicatorsNav.setAttribute(
@@ -141,6 +142,40 @@ export default async function decorate(block) {
     slideIndicators.classList.add('carousel-slide-indicators');
     slideIndicatorsNav.append(slideIndicators);
     block.append(slideIndicatorsNav);
+
+    // Create navigation buttons
+    navigationButtons = document.createElement('div');
+    navigationButtons.classList.add('carousel-navigation-buttons');
+
+    const prevButton = document.createElement('button');
+    prevButton.type = 'button';
+    prevButton.classList.add('slide-prev');
+    prevButton.setAttribute('aria-label', placeholders.previousSlide || 'Previous Slide');
+    prevButton.addEventListener('click', () => {
+      const currentIndex = parseInt(block.dataset.activeSlide || '0', 10);
+      const prevIndex = currentIndex > 0 ? currentIndex - 1 : rows.length - 1;
+      const targetSlide = block.querySelectorAll('.carousel-slide')[prevIndex];
+      if (targetSlide) {
+        updateActiveSlide(targetSlide);
+      }
+      showSlide(block, prevIndex);
+    });
+
+    const nextButton = document.createElement('button');
+    nextButton.type = 'button';
+    nextButton.classList.add('slide-next');
+    nextButton.setAttribute('aria-label', placeholders.nextSlide || 'Next Slide');
+    nextButton.addEventListener('click', () => {
+      const currentIndex = parseInt(block.dataset.activeSlide || '0', 10);
+      const nextIndex = (currentIndex + 1) % rows.length;
+      const targetSlide = block.querySelectorAll('.carousel-slide')[nextIndex];
+      if (targetSlide) {
+        updateActiveSlide(targetSlide);
+      }
+      showSlide(block, nextIndex);
+    });
+
+    navigationButtons.append(prevButton, nextButton);
   }
 
   shuffleArray(rows);
@@ -162,6 +197,9 @@ export default async function decorate(block) {
   });
 
   container.append(slidesWrapper);
+  if (navigationButtons) {
+    container.append(navigationButtons);
+  }
   block.prepend(container);
   if (!isSingleSlide) {
     bindEvents(block);

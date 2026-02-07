@@ -1,0 +1,47 @@
+{
+  "definitions": [
+    {
+      "title": "Newsletter",
+      "id": "newsletter",
+      "model": "newsletter",
+      "plugins": {
+        "da": {
+          "rows": 2,
+          "columns": 1,
+          "fields": [
+            {
+              "name": "heading",
+              "selector": "div.newsletter-content>h2"
+            },
+            {
+              "name": "description",
+              "selector": "div.newsletter-content>p"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "models": [
+    {
+      "id": "newsletter",
+      "fields": [
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "heading",
+          "label": "Heading",
+          "multi": false
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "description",
+          "label": "Description",
+          "multi": false
+        }
+      ]
+    }
+  ],
+  "filters": []
+}

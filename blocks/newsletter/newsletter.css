@@ -1,0 +1,103 @@
+/* Newsletter Section */
+.newsletter {
+  background: linear-gradient(135deg, var(--primary-color, #2563eb) 0%, #1d4ed8 100%);
+  color: white;
+  padding: var(--spacing-2xl, 4rem) 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.newsletter-content {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-medium, 1rem);
+}
+
+.newsletter-content h2 {
+  font-size: 2rem;
+  margin-bottom: var(--spacing-sm, 1rem);
+  color: white;
+  margin-top: 0;
+}
+
+.newsletter-content p {
+  margin-bottom: var(--spacing-lg, 2rem);
+  opacity: 0.9;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.newsletter-form {
+  display: flex;
+  gap: var(--spacing-sm, 1rem);
+  max-width: 500px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+
+.newsletter-form input[type="email"] {
+  flex: 1;
+  min-width: 200px;
+  padding: var(--spacing-sm, 1rem) var(--spacing-md, 1.5rem);
+  border: none;
+  border-radius: var(--border-radius, 8px);
+  font-size: 1rem;
+  color: var(--text-dark, #1e293b);
+}
+
+.newsletter-form input[type="email"]:focus {
+  outline: 2px solid rgba(255, 255, 255, 0.5);
+  outline-offset: 2px;
+}
+
+.newsletter-form button[type="submit"] {
+  white-space: nowrap;
+  padding: var(--spacing-sm, 1rem) var(--spacing-lg, 2rem);
+  border: none;
+  border-radius: var(--border-radius, 8px);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  background-color: white;
+  color: var(--primary-color, #2563eb);
+}
+
+.newsletter-form button[type="submit"]:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.newsletter-form button[type="submit"]:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Section container styling */
+main > .section:has(.newsletter) {
+  padding: 0;
+}
+
+main > .section:has(.newsletter) > div {
+  max-width: 100%;
+  padding: 0;
+}
+
+@media (max-width: 768px) {
+  .newsletter {
+    padding: var(--spacing-xl, 3rem) 0;
+  }
+
+  .newsletter-content h2 {
+    font-size: 1.75rem;
+  }
+
+  .newsletter-form {
+    flex-direction: column;
+  }
+
+  .newsletter-form input[type="email"],
+  .newsletter-form button[type="submit"] {
+    width: 100%;
+  }
+}

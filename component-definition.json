@@ -241,6 +241,27 @@
           }
         },
         {
+          "title": "Newsletter",
+          "id": "newsletter",
+          "model": "newsletter",
+          "plugins": {
+            "da": {
+              "rows": 2,
+              "columns": 1,
+              "fields": [
+                {
+                  "name": "heading",
+                  "selector": "div.newsletter-content>h2"
+                },
+                {
+                  "name": "description",
+                  "selector": "div.newsletter-content>p"
+                }
+              ]
+            }
+          }
+        },
+        {
           "title": "Targeted Block",
           "id": "targeted-block",
           "model": "targeted-block",

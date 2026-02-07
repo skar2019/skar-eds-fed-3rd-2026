@@ -7,25 +7,253 @@
   margin: 0;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(257px, 1fr));
-  gap: var(--spacing-medium);
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--spacing-lg, 2rem);
+  width: 100%;
 }
 
 .cards > ul > li {
-  border: var(--shape-border-width-1) solid var(--color-neutral-500);
-  background-color: var(--background-color);
+  background-color: var(--bg-white, var(--background-color));
+  border-radius: var(--border-radius, 8px);
+  box-shadow: var(--shadow-sm, 0 1px 2px 0 rgba(0, 0, 0, 0.05));
+  transition: transform 0.2s, box-shadow 0.2s;
+  border: none;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding: var(--spacing-lg, 2rem);
+  text-align: left;
+}
+
+/* Ensure all direct children stay within card bounds */
+.cards > ul > li > * {
+  position: relative;
+  max-width: 100%;
+}
+
+.cards > ul > li:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md, 0 4px 6px -1px rgba(0, 0, 0, 0.1));
+}
+
+/* Cards with images: remove padding, images extend to edges */
+.cards > ul > li:has(.cards-card-image picture) {
+  padding: 0;
 }
 
 .cards .cards-card-body {
-  margin: var(--spacing-small);
+  margin: 0;
+  padding: var(--spacing-lg, 2rem);
+  background-color: var(--bg-white, var(--background-color));
+  flex: 1;
+  text-align: left;
 }
 
 .cards .cards-card-image {
-  line-height: 0;
+  line-height: 1;
 }
 
-.cards > ul > li img {
+/* Icon styling (for emoji icons or text icons) - matching teaser-icon */
+.cards .cards-card-image:not(:has(picture)) {
+  font-size: 3rem;
+  margin-bottom: var(--spacing-md, 1.5rem);
+  line-height: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Icon wrapper div styling - ensure proper display */
+.cards .cards-card-image:not(:has(picture)) > div {
+  display: inline-block;
+}
+
+/* Image styling - when picture exists, use proper aspect ratio */
+.cards .cards-card-image picture {
+  display: block;
+  line-height: 0;
+  width: 100%;
+  margin: 0;
+}
+
+.cards .cards-card-image picture img {
   width: 100%;
   aspect-ratio: 4 / 3;
   object-fit: cover;
+  display: block;
+}
+
+/* Standalone images (not in picture tag) */
+.cards > ul > li img:not(.cards-card-image picture img) {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  aspect-ratio: auto;
+  object-fit: contain;
+}
+
+/* Typography for card content - left-aligned text */
+.cards .cards-card-body h1,
+.cards .cards-card-body h2,
+.cards .cards-card-body h3,
+.cards .cards-card-body h4,
+.cards .cards-card-body h5,
+.cards .cards-card-body h6 {
+  font-size: 1.5rem;
+  margin-top: 0;
+  margin-bottom: var(--spacing-sm, 1rem);
+  color: var(--text-dark, var(--color-neutral-800));
+  font-weight: 600;
+  text-align: left;
+  padding: 0;
+}
+
+.cards .cards-card-body h2 {
+  padding: 0;
+}
+
+.cards .cards-card-body p {
+  color: var(--text-light, var(--color-neutral-600));
+  line-height: 1.6;
+  margin: 0;
+  text-align: left;
+  padding: 0;
+}
+
+/* Direct children h2/h3/p in cards (for cards with images where content is unwrapped) */
+.cards > ul > li:has(.cards-card-image picture) > h2,
+.cards > ul > li:has(.cards-card-image picture) > h3,
+.cards > ul > li:has(.cards-card-image picture) > .cards-card-body h2,
+.cards > ul > li:has(.cards-card-image picture) > .cards-card-body h3 {
+  font-size: 1.5rem;
+  margin-top: 0;
+  margin-bottom: var(--spacing-sm, 1rem);
+  color: var(--text-dark, var(--color-neutral-800));
+  font-weight: 600;
+  text-align: left;
+}
+
+.cards > ul > li:has(.cards-card-image picture) > p,
+.cards > ul > li:has(.cards-card-image picture) > .cards-card-body p {
+  color: var(--text-light, var(--color-neutral-600));
+  line-height: 1.6;
+  margin: 0;
+  text-align: left;
+}
+
+/* Ensure content wrapper for cards with images has padding */
+.cards > ul > li:has(.cards-card-image picture) > .cards-card-body {
+  padding: var(--spacing-lg, 2rem);
+}
+
+/* Direct children h2/h3/p need padding when not in .cards-card-body */
+.cards > ul > li:has(.cards-card-image picture):not(:has(.cards-card-body)) > h2,
+.cards > ul > li:has(.cards-card-image picture):not(:has(.cards-card-body)) > h3 {
+  padding: var(--spacing-lg, 2rem) var(--spacing-lg, 2rem) 0;
+  text-align: left;
+}
+
+.cards > ul > li:has(.cards-card-image picture):not(:has(.cards-card-body)) > p {
+  padding: 0 var(--spacing-lg, 2rem) var(--spacing-lg, 2rem);
+  text-align: left;
+}
+
+/* Direct children h2/h3/p in cards (for cards without images where content is unwrapped) */
+.cards > ul > li:not(:has(.cards-card-image picture)) > h2,
+.cards > ul > li:not(:has(.cards-card-image picture)) > h3 {
+  font-size: 1.5rem;
+  margin-top: 0;
+  margin-bottom: var(--spacing-sm, 1rem);
+  color: var(--text-dark, var(--color-neutral-800));
+  font-weight: 600;
+  text-align: left;
+}
+
+.cards > ul > li:not(:has(.cards-card-image picture)) > p {
+  color: var(--text-light, var(--color-neutral-600));
+  line-height: 1.6;
+  margin: 0;
+  text-align: left;
+}
+
+/* Section background for cards - matching teaser-content */
+main > .section:has(.cards) {
+  background-color: var(--bg-light, var(--color-neutral-100));
+  padding: var(--spacing-2xl, 4rem) 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+main > .section:has(.cards) > div {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-medium, 1rem);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+@media (min-width: 900px) {
+  main > .section:has(.cards) > div {
+    padding: 0 var(--spacing-big, 2rem);
+  }
+}
+
+/* Section title styling - only for direct h2 in section, not inside cards */
+main > .section:has(.cards) > div > h2 {
+  text-align: center;
+  margin-bottom: var(--spacing-xl, 3rem);
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: var(--text-dark, var(--color-neutral-800));
+}
+
+/* Ensure all headings and paragraphs inside cards are left-aligned */
+.cards h1,
+.cards h2,
+.cards h3,
+.cards h4,
+.cards h5,
+.cards h6,
+.cards .cards-card-body h1,
+.cards .cards-card-body h2,
+.cards .cards-card-body h3,
+.cards .cards-card-body h4,
+.cards .cards-card-body h5,
+.cards .cards-card-body h6,
+.cards > ul > li h1,
+.cards > ul > li h2,
+.cards > ul > li h3,
+.cards > ul > li h4,
+.cards > ul > li h5,
+.cards > ul > li h6 {
+  text-align: left !important;
+}
+
+.cards p,
+.cards .cards-card-body p,
+.cards > ul > li p {
+  text-align: left !important;
+}
+
+@media (max-width: 768px) {
+  .cards > ul {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md, 1.5rem);
+  }
+
+  main > .section:has(.cards) {
+    padding: var(--spacing-xl, 3rem) 0;
+  }
+
+  main > .section:has(.cards) h2 {
+    font-size: 2rem;
+    margin-bottom: var(--spacing-lg, 2rem);
+  }
+}
+
+@media (max-width: 480px) {
+  .cards > ul {
+    grid-template-columns: 1fr;
+  }
 }
